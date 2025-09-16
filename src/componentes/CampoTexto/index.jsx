@@ -6,8 +6,13 @@ export default function CampoTexto (props){
 
     return(
         <div className="campo-texto">
-            <label htmlFor={props.htmlFor}>{props.label}</label>
-            <input type="text" name={props.name} id="nomeStr" placeholder={placeholderModificada}/>
+            <label htmlFor={props.name}>{props.label}</label>
+            <input 
+                type="text" 
+                name={props.name} 
+                id={props.name}
+                placeholder={placeholderModificada}
+            />
         </div>
     );
 }
