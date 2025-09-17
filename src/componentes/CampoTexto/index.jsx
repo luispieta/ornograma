@@ -12,6 +12,7 @@ export default function CampoTexto (props){
                 name={props.name} 
                 id={props.name}
                 placeholder={placeholderModificada}
+                required={props.obrigatorio}
             />
         </div>
     );

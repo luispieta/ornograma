@@ -1,5 +1,6 @@
-import CampoTexto from "../CampoTexto.jsx";
-import ListaSuspensa from "../ListaSuspensa.jsx";
+import CampoTexto from "../CampoTexto";
+import ListaSuspensa from "../ListaSuspensa";
+import Botao from "../Botao";
 import "./formulario.css";
 
 export default function Formulario () {
@@ -12,14 +13,22 @@ export default function Formulario () {
         "Flanco atirador"
     ];
 
+    const salvar = (evento) => {
+        evento.preventDefault();
+        console.log("O registro foi salvado!")
+    }
+
     return(
         <section className="formulario">
-            <form>
+            <form onSubmit={salvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto label="Nome" name="nome" placeholder="Digite seu nome"/>
-                <CampoTexto label="Cargo" name="cargo" placeholder="Digite seu cargo"/>
-                <CampoTexto label="Imagem" name="imagem" placeholder="Digite sua ima'gem"/>
-                <ListaSuspensa label="Time" name="time" itens={times}/>
+                <CampoTexto obrigatorio={true} label="Nome" name="nome" placeholder="Digite seu nome"/>
+                <CampoTexto obrigatorio={true} label="Cargo" name="cargo" placeholder="Digite seu cargo"/>
+                <CampoTexto label="Imagem" name="imagem" placeholder="Digite sua imagem"/>
+                <ListaSuspensa obrigatorio={true} label="Time" name="time" itens={times}/>
+                <Botao>
+                    Criar card
+                </Botao>
             </form>
         </section>
     );
