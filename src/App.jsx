@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Banner from './componentes/Banner/index.jsx'
 import Formulario from './componentes/Formulario/index.jsx'
+import Time from './componentes/Time/index.jsx'
 
 export default function App() {
   
@@ -15,6 +16,9 @@ export default function App() {
     <div>
       <Banner/>
       <Formulario colaboradorCadastrado={colaborador => novoColaboradorCadastrado(colaborador)}/>
+      <Time nome="Programação"/>
+      <Time nome="Front-end"/>
+
     </div>
   )
 }
