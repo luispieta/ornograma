@@ -6,14 +6,6 @@ import { useState } from "react";
 
 export default function Formulario (props) {
 
-    const times = [
-        "Ataque", 
-        "Dano",
-        "Defesa",
-        "Suporte",
-        "Flanco atirador"
-    ];
-
     const [nome, setNome] = useState("")
     const [cargo, setCargo] = useState("")
     const [imagem, setImagem] = useState("")
@@ -56,7 +48,7 @@ export default function Formulario (props) {
                     obrigatorio={true}
                     label="Time" 
                     name="time" 
-                    itens={times}
+                    itens={props.nomeTimes}
                     valor={time}
                     alterado={valor => setTime(valor)}
                 />

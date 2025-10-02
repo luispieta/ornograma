@@ -4,6 +4,34 @@ import Formulario from './componentes/Formulario/index.jsx'
 import Time from './componentes/Time/index.jsx'
 
 export default function App() {
+
+  const times = [
+    {
+      nome: "Ataque",
+      corPrimaria: "#ff00aaff",
+      corSegundaria: "#e8bdd9"
+    },
+    {
+      nome: "Dano",
+      corPrimaria: "#ff0000ff",
+      corSegundaria: "#e8bdbdff"
+    },
+    {
+      nome: "Defesa",
+      corPrimaria: "#1100ffff",
+      corSegundaria: "#c3bde8ff"
+    },
+    {
+      nome: "Suporte",
+      corPrimaria: "#ffea00ff",
+      corSegundaria: "#e8e7bdff"
+    },
+    {
+      nome: "Flanco atirador",
+      corPrimaria: "#22ff00ff",
+      corSegundaria: "#bfe8bdff"
+    }
+  ]
   
   const [colaborador, setColaborador] = useState([])
 
@@ -15,10 +43,16 @@ export default function App() {
   return (
     <div>
       <Banner/>
-      <Formulario colaboradorCadastrado={colaborador => novoColaboradorCadastrado(colaborador)}/>
-      <Time nome="Programação"/>
-      <Time nome="Front-end"/>
-
+      <Formulario nomeTimes={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaboradorCadastrado(colaborador)}/>
+      
+      {times.map(time => 
+        <Time 
+          key={time.nome} 
+          nome={time.nome} 
+          corPrimaria={time.corPrimaria} 
+          corSegundaria={time.corSegundaria}
+        />
+      )}
     </div>
   )
 }
