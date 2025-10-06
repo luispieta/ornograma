@@ -33,17 +33,20 @@ export default function App() {
     }
   ]
   
-  const [colaborador, setColaborador] = useState([])
+  const [colaboradores, setColaboradores] = useState([])
 
-  const novoColaboradorCadastrado = (colaboradores) => {
+  const novoColaboradorCadastrado = (colaborador) => {
     console.log(colaboradores)
-    setColaborador([...colaborador, colaboradores])
+    setColaboradores([...colaboradores, colaborador])
   }
   
   return (
     <div>
       <Banner/>
-      <Formulario nomeTimes={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaboradorCadastrado(colaborador)}/>
+      <Formulario 
+        nomeTimes={times.map(time => time.nome)} 
+        colaboradorCadastrado={colaboradores => novoColaboradorCadastrado(colaboradores)}
+      />
       
       {times.map(time => 
         <Time 
@@ -51,6 +54,7 @@ export default function App() {
           nome={time.nome} 
           corPrimaria={time.corPrimaria} 
           corSegundaria={time.corSegundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
         />
       )}
     </div>
