@@ -1,6 +1,8 @@
 import "./colaborador.css"
 
-export default function Colaborador({nome, imagem, cargo}) {
+export default function Colaborador({nome, imagem, cargo, corPrimaria}) {
+
+    const nomeEstilo = {color: corPrimaria}
 
     return(
         <div className="colaborador">
@@ -8,7 +10,7 @@ export default function Colaborador({nome, imagem, cargo}) {
                 <img src={imagem} alt={nome} />
             </div>
             <div className="rodape">
-                <h4>{nome}</h4>
+                <h4 style={nomeEstilo}>{nome}</h4>
                 <h5>{cargo}</h5>
             </div>
         </div>

@@ -9,13 +9,14 @@ export default function Time(props) {
 
     return(
         <section className="time" style={fundo}>
-            <h3 style={borda} >{props.nome}</h3>
+            <h3 style={borda}>{props.nome}</h3>
             <div className="colaboradores">
                 {props.colaboradores.map(colaborador => 
                     <Colaborador 
                         nome={colaborador.nome}
                         cargo={colaborador.cargo}
                         imagem={colaborador.imagem}
+                        corPrimaria={props.corPrimaria}
                     />
                 )}
             </div>

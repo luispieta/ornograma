@@ -47,7 +47,6 @@ export default function App() {
         nomeTimes={times.map(time => time.nome)} 
         colaboradorCadastrado={colaboradores => novoColaboradorCadastrado(colaboradores)}
       />
-      
       {times.map(time => 
         <Time 
           key={time.nome} 
