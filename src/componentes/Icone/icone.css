@@ -1,0 +1,10 @@
+.icone img {
+    width: 35px;
+}
+
+.icone ul li {
+    display: inline;
+    margin-right: 32px;
+    align-items: center;
+    margin-right: 0;
+}

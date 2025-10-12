@@ -15,6 +15,9 @@ export default function Formulario (props) {
     const salvar = (evento) => {
         evento.preventDefault()
         props.colaboradorCadastrado({nome, cargo, imagem, time})
+        setNome("")
+        setCargo("")
+        setImagem("")
     }
 
     return(

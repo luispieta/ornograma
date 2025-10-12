@@ -8,7 +8,7 @@ export default function Time(props) {
     const borda = {borderColor: props.corPrimaria}
 
     return(
-        <section className="time" style={fundo}>
+        props.colaboradores.length > 0 && <section className="time" style={fundo}>
             <h3 style={borda}>{props.nome}</h3>
             <div className="colaboradores">
                 {props.colaboradores.map(colaborador => 
