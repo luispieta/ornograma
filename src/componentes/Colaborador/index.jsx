@@ -1,12 +1,14 @@
 import "./colaborador.css"
 
-export default function Colaborador({nome, imagem, cargo, corPrimaria}) {
+export default function Colaborador({nome, imagem, cargo, corPrimaria, corDeFundo}) {
 
     const nomeEstilo = {color: corPrimaria}
 
-    return(
+    const corFundo ={backgroundColor: corDeFundo} 
+
+    return(  
         <div className="colaborador">
-            <div className="cabecalho">
+            <div className="cabecalho" style={corFundo}>
                 <img src={imagem} alt={nome} />
             </div>
             <div className="rodape">

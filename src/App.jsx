@@ -37,7 +37,6 @@ export default function App() {
   const [colaboradores, setColaboradores] = useState([])
 
   const novoColaboradorCadastrado = (colaborador) => {
-    console.log(colaboradores)
     setColaboradores([...colaboradores, colaborador])
   }
   
