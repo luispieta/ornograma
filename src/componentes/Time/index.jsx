@@ -1,26 +1,27 @@
 import "./time.css"
 import Colaborador from "../Colaborador"
 
-export default function Time(props) {
+export default function Time({corPrimaria, deletar, colaboradores, corSegundaria, nome}) {
 
-    const fundo = {backgroundColor: props.corSegundaria}
+    const fundo = {backgroundColor: corSegundaria}
 
-    const borda = {borderColor: props.corPrimaria}
+    const borda = {borderColor: corPrimaria}
 
     return(
-        props.colaboradores.length > 0 && <section className="time" style={fundo}>
-            <h3 style={borda}>{props.nome}</h3>
+        colaboradores.length > 0 && <section className="time" style={fundo}>
+            <h3 style={borda}>{nome}</h3>
             <div className="colaboradores">
-                {props.colaboradores.map(colaborador => 
-                    <Colaborador 
+                {colaboradores.map(colaborador => {
+                    return <Colaborador 
                         key={colaborador.nome}
                         nome={colaborador.nome}
                         cargo={colaborador.cargo}
                         imagem={colaborador.imagem}
-                        corPrimaria={props.corPrimaria}
-                        corDeFundo={props.corPrimaria}
+                        corPrimaria={corPrimaria}
+                        corDeFundo={corPrimaria}
+                        deletar={deletar}
                     />
-                )}
+                })}
             </div>
         </section>
     )

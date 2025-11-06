@@ -1,6 +1,7 @@
 import "./colaborador.css"
+import Icone from "../Icone"
 
-export default function Colaborador({nome, imagem, cargo, corPrimaria, corDeFundo}) {
+export default function Colaborador({nome, imagem, cargo, corPrimaria, corDeFundo, deletar}) {
 
     const nomeEstilo = {color: corPrimaria}
 
@@ -8,6 +9,9 @@ export default function Colaborador({nome, imagem, cargo, corPrimaria, corDeFund
 
     return(  
         <div className="colaborador">
+            <div className="deletar" onClick={deletar}>
+                <Icone imagem="public\imagens\lixeira.png" nome="Lixeira" />
+            </div>
             <div className="cabecalho" style={corFundo}>
                 <img src={imagem} alt={nome} />
             </div>

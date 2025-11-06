@@ -40,6 +40,10 @@ export default function App() {
     setColaboradores([...colaboradores, colaborador])
   }
   
+  function deletarColaborador() {
+    console.log("Colaborador deletado")
+  }
+
   return (
     <div>
       <Banner/>
@@ -54,6 +58,7 @@ export default function App() {
           corPrimaria={time.corPrimaria} 
           corSegundaria={time.corSegundaria}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          deletar={deletarColaborador}
         />
       )}
       <Rodape/>

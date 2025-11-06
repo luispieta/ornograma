@@ -13,4 +13,6 @@
     padding: 20px;
     box-sizing: border-box;
     border-radius: 5px;
+    cursor: pointer;
+
 }
