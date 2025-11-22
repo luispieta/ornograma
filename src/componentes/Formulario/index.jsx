@@ -3,6 +3,7 @@ import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import "./formulario.css";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid"
 
 export default function Formulario (props) {
 
@@ -14,10 +15,17 @@ export default function Formulario (props) {
 
     const salvar = (evento) => {
         evento.preventDefault()
-        props.colaboradorCadastrado({nome, cargo, imagem, time})
+        props.colaboradorCadastrado({
+            id: uuidv4(),
+            nome, 
+            cargo, 
+            imagem, 
+            time
+        })
         setNome("")
         setCargo("")
         setImagem("")
+        setTime("")
     }
 
     return(
