@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 
 export default function Time({cor, deletar, colaboradores, nome, mudarCor, id}) {
 
-    const fundo = { backgroundColor: hexToRgba(cor, "0.5") };
+    const fundo = cor ? { backgroundColor: hexToRgba(cor, "0.5") } : {};
 
     const borda = {borderColor: cor}
 

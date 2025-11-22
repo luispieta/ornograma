@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export default function App() {
 
-  const [times, setTime] = useState([
+  const [times, setTimes] = useState([
     {
       id: uuidv4(),
       nome: "Ataque",
@@ -35,8 +35,10 @@ export default function App() {
     }
   ])
 
+  const [colaboradores, setColaboradores] = useState([])
+
   function mudarCorTime(cor, id) {
-    setTime(times.map(time => {
+    setTimes(times.map(time => {
       if(time.id === id) {
         time.cor = cor;
       }
@@ -44,8 +46,6 @@ export default function App() {
     }))
   }
   
-  const [colaboradores, setColaboradores] = useState([])
-
   const novoColaboradorCadastrado = (colaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
@@ -54,20 +54,25 @@ export default function App() {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
   }
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times, {...novoTime, id: uuidv4()}])
+  }
+
   return (
     <div>
       <Banner/>
       <Formulario 
-        nomeTimes={times.map(time => time.nome)} 
+        cadastroTimes={cadastrarTime}
+        times={times} 
         colaboradorCadastrado={colaboradores => novoColaboradorCadastrado(colaboradores)}
       />
       {times.map(time => 
         <Time 
           key={time.id} 
-          mudarCor={mudarCorTime}
-          nome={time.nome} 
           id={time.id} 
+          nome={time.nome} 
           cor={time.cor} 
+          mudarCor={mudarCorTime}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           deletar={deletarColaborador}
         />
