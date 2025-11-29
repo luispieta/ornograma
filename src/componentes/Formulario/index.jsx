@@ -1,4 +1,4 @@
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import "./formulario.css";
@@ -30,12 +30,12 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
         setTime("")
     }
 
-     const salvarTime = (evento) => {
+    const salvarTime = (evento) => {
         evento.preventDefault()
         cadastroTimes({
             id: uuidv4(),
-            nomeTime, 
-            corTime
+            nome: nomeTime,
+            cor: corTime
         })
         setNomeTime("")
         setCorTime("")
@@ -45,7 +45,7 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
         <section className="formulario">
             <form onSubmit={salvarColaborador}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto 
+                <Campo 
                     obrigatorio={true} 
                     label="Nome" 
                     name="nome" 
@@ -53,7 +53,7 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
                     valor={nome}
                     alterado={valor => setNome(valor)}
                 />
-                <CampoTexto 
+                <Campo 
                     obrigatorio={true} 
                     label="Cargo" 
                     name="cargo" 
@@ -61,7 +61,7 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
                     valor={cargo}
                     alterado={valor => setCargo(valor)}
                 />
-                <CampoTexto 
+                <Campo 
                     label="Imagem" 
                     name="imagem" 
                     placeholder="Digite sua imagem"
@@ -82,7 +82,7 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
             </form>
             <form onSubmit={salvarTime}>
                 <h2>Preencha os dados para criar um novo time</h2>
-                <CampoTexto 
+                <Campo 
                     obrigatorio={true} 
                     label="Nome" 
                     name="nome" 
@@ -90,7 +90,8 @@ export default function Formulario ({colaboradorCadastrado, times, cadastroTimes
                     valor={nomeTime}
                     alterado={valor => setNomeTime(valor)}
                 />
-                <CampoTexto 
+                <Campo 
+                    type="color"
                     obrigatorio={true} 
                     label="Cor" 
                     name="cor" 

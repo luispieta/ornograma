@@ -12,7 +12,7 @@ export default function ListaSuspensa({obrigatorio, label, name, itens = [], val
                 onChange={evento => alterado(evento.target.value)} 
                 value={valor}
             >
-                <option key="vazio" value=""></option>
+                <option key="placeholder" value=""></option>
                 {itens.map((item, index) => (
                     <option key={index} value={item}>
                         {item}
